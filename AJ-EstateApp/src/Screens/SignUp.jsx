@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../component/OAuth";
 
 export default function SignUp() {
   // KEEP THE TRACK OF USER ACTIVITY ON THE WEB PAGE IN SYSTEM CONSOLE
@@ -77,6 +78,7 @@ export default function SignUp() {
         >
           {loading ? "Loading..." : "Sign Up"}
         </button>
+        <OAuth/>
       </form>
       <div className="flex gap-2 mt-3">
         <p>Have an account?</p>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { signInStart, signInSuccess, signInFaliure } from "../redux/user/userSlice";
+import OAuth from "../component/OAuth";
 
 export default function SignIn() {
   // KEEP THE TRACK OF USER ACTIVITY ON THE WEB PAGE IN SYSTEM CONSOLE
@@ -70,6 +71,7 @@ export default function SignIn() {
         >
           {loading ? "Loading..." : "Sign In"}
         </button>
+        <OAuth/>
       </form>
       <div className="flex gap-2 mt-3">
         <p>Not yet have an account?</p>
