@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import userAuthRouter from "./routes/user.auth.route.js";
+import cookieParser from "cookie-parser";
 
 //INOITIALIZE DOTENV
 dotenv.config();
@@ -20,6 +21,8 @@ const app = express();
 
 //Initialize JSON Object
 app.use(express.json());
+
+app.use(cookieParser());
 
 // USED OF PAGES ROUTER
 app.use("/api/user", userRouter);
