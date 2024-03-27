@@ -1,4 +1,4 @@
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 import {
   getDownloadURL,
@@ -14,9 +14,12 @@ import {
   deleteUserFaliure,
   deleteUserStart,
   deleteUserSuccess,
+  signOutUserStart,
+  signOutUserFaliure,
+  signOutUserSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -26,7 +29,6 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
-  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   // firebase storage upload
@@ -64,7 +66,7 @@ export default function Profile() {
       }
     );
   };
-  const handleChange =  (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
   const handleSubmit = async (e) => {
@@ -73,9 +75,9 @@ export default function Profile() {
       dispatch(updateUserStart());
 
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'content-Type': 'application/json',
+          "content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -85,7 +87,7 @@ export default function Profile() {
         dispatch(updateUserFaliure(data.message));
         return;
       }
-      dispatch(updateUserSuccess(data))
+      dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFaliure(error.message));
@@ -98,17 +100,33 @@ export default function Profile() {
       const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
       });
-      const data = await res.json()
+      const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFaliure(data.message));
         return;
       }
       dispatch(deleteUserSuccess(data));
-      navigate('/sign-in')
+      navigate("/sign-in");
     } catch (error) {
       dispatch(deleteUserFaliure(error.message));
     }
   };
+
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFaliure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-bold text-center my-7">Profile</h1>
@@ -173,13 +191,23 @@ export default function Profile() {
         </button>
       </form>
       <div className="flex flex-row justify-between mt-5 ">
-        <span onClick={handleDeleteUser} className="text-red-600 text-semibold cursor-pointer">
+        <span
+          onClick={handleDeleteUser}
+          className="text-red-600 text-semibold cursor-pointer"
+        >
           Delete Account
         </span>
-        <span className="text-red-600 cursor-pointer">Sign Out</span>
+        <span
+          onClick={handleSignOut}
+          className="text-red-600 cursor-pointer"
+        >
+          Sign Out
+        </span>
       </div>
-       <p className="text-red-600 mt-5">{error ? error : ''}</p>
-       <p className="text-green-600 mt-5">{updateSuccess ? 'Profile updated successfully!' : ''}</p>
+      <p className="text-red-600 mt-5">{error ? error : ""}</p>
+      <p className="text-green-600 mt-5">
+        {updateSuccess ? "Profile updated successfully!" : ""}
+      </p>
     </div>
   );
 }
