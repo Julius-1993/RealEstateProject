@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import userAuthRouter from "./routes/user.auth.route.js";
+import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
 
 //INOITIALIZE DOTENV
@@ -27,6 +28,7 @@ app.use(cookieParser());
 // USED OF PAGES ROUTER
 app.use("/api/user", userRouter);
 app.use("/api/auth", userAuthRouter);
+app.use("/api/listing", listingRouter);
 
 // Error Handler USING MIDLEWARE
 app.use((err, req, res, next) => {
