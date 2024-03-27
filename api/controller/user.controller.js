@@ -1,16 +1,16 @@
 import bcrypt from 'bcryptjs';
 import User from '../models/user.model.js';
-import { errorHandler } from '../utils/error.js';
+import { errorHandler }  from '../utils/error.js';
 
 export const test =  (req, res) => {
   res.send('Hello World from the controller!');
 };  // This is the same as the snippet above, but in a controller file
 
 export const updateUser = async(req, res, next) => {
-  if(req.user.id !== req.params.id) return next(errorHandler(401, "You are not authorized"));
+  if(req.user.id !== req.params.id) return next(errorHandler(401, 'You are not authorized'));
   try{
     if (req.body.password) {
-    req.body.password = bcrypt.hashSync(req.body.password, 10);
+    req.body.password = bcrypt.hashSync(req.body.password, 10)
   }
 
   const updateUser = await User.findByIdAndUpdate(req.params.id, {
