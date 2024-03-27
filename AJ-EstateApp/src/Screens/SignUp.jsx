@@ -38,6 +38,7 @@ export default function SignUp() {
       }
       setLoading(false);
       setError(null);
+      Alert.alert(data.message)
       navigate('/sign-in');
     } catch (error) {
       setLoading(false);
