@@ -7,6 +7,7 @@ import SignUp from "./Screens/SignUp";
 import Header from "./component/Header";
 import Profile from "./Screens/Profile";
 import PrivateRoute from "./component/PrivateRoute";
+import CreateListing from "./Screens/CreateListing";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/create-listing" element={<CreateListing />} />
         </Route>
       </Routes>
     </BrowserRouter>

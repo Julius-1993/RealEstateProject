@@ -19,7 +19,7 @@ import {
   signOutUserSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
-
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -122,11 +122,10 @@ export default function Profile() {
         return;
       }
       dispatch(signOutUserSuccess(data));
-      
     } catch (error) {
       console.log(error);
     }
-  }
+  };
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-bold text-center my-7">Profile</h1>
@@ -189,6 +188,12 @@ export default function Profile() {
         >
           {loading ? "Loading..." : "Update Profile"}
         </button>
+        <Link
+          className="bg-blue-600 text-white rounded-lg p-3 uppercase text-center hover:opacity-95"
+          to={"/create-listing"}
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex flex-row justify-between mt-5 ">
         <span
@@ -197,10 +202,7 @@ export default function Profile() {
         >
           Delete Account
         </span>
-        <span
-          onClick={handleSignOut}
-          className="text-red-600 cursor-pointer"
-        >
+        <span onClick={handleSignOut} className="text-red-600 cursor-pointer">
           Sign Out
         </span>
       </div>
