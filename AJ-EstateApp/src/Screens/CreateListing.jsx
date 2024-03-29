@@ -327,8 +327,11 @@ export default function CreateListing() {
               onClick={handleImageSubmit}
               className="p-3 border border-green-300 text-green-700 
             rounded uppercase hover:shadow-lg disabled:opacity-80"
-            >
+            ><svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+    
               {uploading ? "Uploading..." : "Upload"}
+            </svg>
+            Upload
             </button>
           </div>
           <p className="text-red-700 text-sm">

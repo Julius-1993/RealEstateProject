@@ -108,7 +108,7 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      navigate("/sign-in");
+      // navigate("/sign-in");
     } catch (error) {
       dispatch(deleteUserFaliure(error.message));
     }
