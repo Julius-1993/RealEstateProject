@@ -175,14 +175,14 @@ export default function Profile() {
         <img
           onClick={() => fileRef.current.click()}
           src={formData.avatar || currentUser.avatar}
-          alt="profile-pic"
-          className="rounded-full h-24 w-24 object-cover bg-teal-400
+          alt="profile"
+          className="rounded-full h-24 w-24 object-cover bg-slate-300
           cursor-pointer self-center mt-2 "
         />
         <p className="text-sm mx-auto">
           {fileUploadError ? (
             <span className="text-red-800">
-              Error Image Uplod (Image must not grater than 4MB)
+              Error Image Upload ('Image must not grater than 4MB')
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className="text-amber-500">{`Uploading ${filePerc}%`}</span>
