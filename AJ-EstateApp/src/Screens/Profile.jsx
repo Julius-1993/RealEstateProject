@@ -176,7 +176,7 @@ export default function Profile() {
           onClick={() => fileRef.current.click()}
           src={formData.avatar || currentUser.avatar}
           alt="profile-pic"
-          className="rounded-full h-24 w-24 object-cover bg-teal-400 
+          className="rounded-full h-24 w-24 object-cover bg-teal-400
           cursor-pointer self-center mt-2 "
         />
         <p className="text-sm mx-auto">
@@ -217,8 +217,8 @@ export default function Profile() {
         />
         <button
           disabled={loading}
-          className="bg-lime-700 p-3 rounded-lg 
-        text-white text-semibold uppercase 
+          className="bg-lime-700 p-3 rounded-lg
+        text-white text-semibold uppercase
         hover:opacity-85 disable:opacity-95"
         >
           {loading ? "Loading..." : "Update Profile"}
@@ -259,7 +259,7 @@ export default function Profile() {
           {userListings.map((listings) => (
             <div
               key={listings._id}
-              className="border rounded-lg 
+              className="border rounded-lg
             p-3 flex justify-between items-center
             gap-4"
             >
