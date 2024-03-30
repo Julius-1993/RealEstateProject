@@ -5,6 +5,7 @@ import userRouter from "./routes/user.route.js";
 import userAuthRouter from "./routes/user.auth.route.js";
 import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 //INOITIALIZE DOTENV
 dotenv.config();
@@ -18,6 +19,8 @@ mongoose.connect(process.env.MONGO)
     console.log(err);
   });
 
+const __dirname = path.resolve();
+  // INITIALIZE EXPRESS
 const app = express();
 
 //Initialize JSON Object
@@ -29,6 +32,12 @@ app.use(cookieParser());
 app.use("/api/user", userRouter);
 app.use("/api/auth", userAuthRouter);
 app.use("/api/listing", listingRouter);
+
+app.use(express.static(path.join(__dirname, "/AJ-EstateApp/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "AJ-EstateApp", "dist", "index.html"));
+})
 
 // Error Handler USING MIDLEWARE
 app.use((err, req, res, next) => {
