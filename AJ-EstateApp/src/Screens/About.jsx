@@ -12,6 +12,8 @@ export default function About() {
       </p>
       <h1 className='text-3xl font-bold mb-4 text-slate-800 text-center'>Our Team</h1>
       <p className='mb-4 text-slate-700'>Our team of agents has a wealth of experience and knowledge in the real estate industry, and we are committed to providing the highest level of service to our clients. We believe that buying or selling a property should be an exciting and rewarding experience, and we are dedicated to making that a reality for each and every one of our clients.</p>
+    
+    <p className='text-semibold text-center text-slate-900 mt-3'>All Right Reserved by AJ-Tech &copy; 2024</p>
     </div>
   )
 }
