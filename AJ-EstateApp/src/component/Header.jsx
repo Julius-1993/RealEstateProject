@@ -31,7 +31,7 @@ export default function Header() {
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
             <span className="text-slate-500">AJ</span>
-            <span className="text-slate-800">ESTATE</span>
+            <span className="text-purple-900">ESTATE</span>
           </h1>
         </Link>
 
@@ -67,7 +67,7 @@ export default function Header() {
                 alt="profile"
               />
             ) : (
-              <li className="text-slate-700 hover:text-slate-300 font-bold hidden sm:inline md:inline">
+              <li className="text-slate-700 hover:text-slate-300 font-bold sm:inline md:inline">
                 {" "}
                 Sign in
               </li>
