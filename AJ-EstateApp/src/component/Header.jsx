@@ -67,7 +67,7 @@ export default function Header() {
                 alt="profile"
               />
             ) : (
-              <li className="text-slate-700 hover:text-slate-300 font-bold sm:inline md:inline">
+              <li className="text-slate-700 hover:text-purple-400 font-bold sm:inline md:inline">
                 {" "}
                 Sign in
               </li>
