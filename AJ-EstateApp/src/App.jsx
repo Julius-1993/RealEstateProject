@@ -11,14 +11,18 @@ import CreateListing from "./Screens/CreateListing";
 import UpdateListing from "./Screens/UpdateListing";
 import Listing from "./Screens/Listing";
 import Search from "./Screens/Search";
+import Footer from "./component/Footer";
+import FAQ from "./component/FAQ";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Header />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/listing/:listingId" element={<Listing />} />
@@ -29,6 +33,7 @@ export default function App() {
           <Route path="/update-listing/:listingId" element={<UpdateListing />} />
         </Route>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
