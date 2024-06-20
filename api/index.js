@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import userAuthRouter from "./routes/user.auth.route.js";
 import listingRouter from "./routes/listing.route.js";
+import reviewRouter from "./routes/review.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
 
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use("/api/user", userRouter);
 app.use("/api/auth", userAuthRouter);
 app.use("/api/listing", listingRouter);
+app.use("/api/", reviewRouter);
 
 app.use(express.static(path.join(__dirname, "/AJ-EstateApp/dist")));
 

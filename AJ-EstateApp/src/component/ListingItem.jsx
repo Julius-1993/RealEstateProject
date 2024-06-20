@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MdLocationOn } from 'react-icons/md';
+import ReviewList from './ReviewList';
+
 
 export default function ListingItem({ listing }) {
   return (
@@ -44,6 +46,8 @@ export default function ListingItem({ listing }) {
                 ? `${listing.bathrooms} baths `
                 : `${listing.bathrooms} bath `}
             </div>
+            <ReviewList propertyId={listing.id}/>
+            
           </div>
         </div>
       </Link>

@@ -9,7 +9,7 @@ export default function Footer() {
           <h6 className="footer-title">Services</h6>
           <Link to="/" className="link link-hover">Design</Link>
           <Link to="/" className="link link-hover">Marketing</Link>
-          <Link to="/" className="link link-hover">Advertisement</Link>
+          <Link to="/review" className="link link-hover">Customer Review</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>

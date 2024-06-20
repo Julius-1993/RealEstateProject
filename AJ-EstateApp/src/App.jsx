@@ -13,6 +13,7 @@ import Listing from "./Screens/Listing";
 import Search from "./Screens/Search";
 import Footer from "./component/Footer";
 import FAQ from "./component/FAQ";
+import { AddReview } from "./component/AddReview";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/review" element={<AddReview />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />

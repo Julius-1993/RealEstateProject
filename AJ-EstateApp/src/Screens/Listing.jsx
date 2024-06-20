@@ -15,6 +15,9 @@ import {
   FaShare,
 } from "react-icons/fa";
 import Contact from "../component/Contact";
+import { AddReview } from "../component/AddReview";
+import axios from "axios";
+import ReviewList from "../component/ReviewList";
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -25,6 +28,24 @@ export default function Listing() {
   const [error, setError] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(
+          `/api/reviews?propertyId=${params.listingId}`
+        );
+        setReviews(response.data);
+      } catch (error) {
+        console.error("Error fetching Reviews", error);
+      }
+    };
+    fetchReviews();
+  }, [params.listingId]);
+
+
+
   useEffect(() => {
     const fetchListing = async () => {
       try {
@@ -46,6 +67,10 @@ export default function Listing() {
     };
     fetchListing();
   }, [params.listingId]);
+
+  const handleReviewAdded = (newReview) =>{
+    setReviews((prevReviews) => [...prevReviews, newReview])
+  }
 
   return (
     <main>
@@ -146,6 +171,10 @@ export default function Listing() {
               </button>
             )}
             {contact && <Contact listing={listing} />}
+          </div>
+          <div className="flex item-center justify-center mx-auto py-6"><ReviewList propertyId={listing.id}/></div>
+          <div className="flex item-center justify-center mx-auto py-6">
+          <AddReview propertyId={listing.id} onReviewAdded={handleReviewAdded} />
           </div>
         </div>
       )}
