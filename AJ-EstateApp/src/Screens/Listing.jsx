@@ -16,8 +16,7 @@ import {
 } from "react-icons/fa";
 import Contact from "../component/Contact";
 import { AddReview } from "../component/AddReview";
-import axios from "axios";
-
+import Rating from "@mui/material/Rating";
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -28,7 +27,6 @@ export default function Listing() {
   const [error, setError] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
-  
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -68,7 +66,7 @@ export default function Listing() {
   };
 
   return (
-    <main>
+    <main className="pt-20" >
       {loading && (
         <p className="text-center my-6 text-2xl text-semibold">Loading...</p>
       )}
@@ -109,13 +107,20 @@ export default function Listing() {
               Link copied!
             </p>
           )}
-          <div className="flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4">
+          <div className=" max-w-4xl mt-2 p-3 mx-auto ">
+              <Rating name="size-small" defaultValue={4} size="small" />
+            </div>
+          <div className="flex flex-col max-w-4xl mx-auto p-3 gap-3">
             <p className="text-2xl font-semibold">
               {listing.name} - &#8358;{" "}
               {listing.offer
                 ? listing.discountPrice.toLocaleString("en-US")
                 : listing.regularPrice.toLocaleString("en-US")}
-              {listing.type === "rent" && " / month"}
+              {listing.type === "rent" && " / year"}
+              <span className="text-lime-700">
+                {"  "} <span className="text-slate-700">Interest fee:</span>{" "}
+                {listing.interest}%
+              </span>
             </p>
             <p className="flex items-center mt-6 gap-2 text-slate-600  text-sm">
               <FaMapMarkerAlt className="text-green-700" />
@@ -127,7 +132,8 @@ export default function Listing() {
               </p>
               {listing.offer && (
                 <p className="bg-green-900 w-full max-w-[200px] text-white text-center p-2 rounded-md">
-                  &#8358;{+listing.regularPrice - +listing.discountPrice} Discount
+                  &#8358;{+listing.regularPrice - +listing.discountPrice}{" "}
+                  Discount
                 </p>
               )}
             </div>
@@ -160,14 +166,14 @@ export default function Listing() {
             {currentUser && listing.userRef !== currentUser._id && !contact && (
               <button
                 onClick={() => setContact(true)}
-                className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
+                className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3"
               >
                 Contact landlord
               </button>
             )}
             {contact && <Contact listing={listing} />}
           </div>
-          <AddReview onAddReview={addReview}/>
+          <AddReview onAddReview={addReview} />
         </div>
       )}
     </main>

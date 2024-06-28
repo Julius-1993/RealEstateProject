@@ -24,6 +24,7 @@ export default function CreateListing() {
     bathrooms: 1,
     regularPrice: 100000,
     discountPrice: 0,
+    interest: 0,
     offer: false,
     furnished: false,
     parking: false,
@@ -75,7 +76,7 @@ export default function CreateListing() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(`Upload is ${progress}% done`);
+          // console.log(`Upload is ${progress}% done`);
         },
         (error) => {
           reject(error);
@@ -154,7 +155,7 @@ export default function CreateListing() {
     }
   }
   return (
-    <main className="p-3 max-w-4xl mx-auto border bg-slate-50 mt-2">
+    <main className="p-3 max-w-4xl mx-auto border bg-slate-50 mt-2 py-20">
       <h1 className="text-3xl font-semibold text-center my-7">
         Create Listing
       </h1>
@@ -304,6 +305,22 @@ export default function CreateListing() {
             )}
             
           </div>
+          <div className=" flex items-center gap-2">
+              <input
+                type="number"
+                id="interest"
+                min="0"
+                max="600000000"
+                required
+                onChange={handleChange}
+                value={formData.interest}
+                className="border border-slate-500 p-3 rounded-lg"
+              />
+              <div className="flex flex-col items-center">
+                <p>Interest Rate</p>
+                <span className="text-xs font-semibold">( % )</span>
+              </div>
+            </div>
         </div>
         <div className="flex flex-col flex-1 gap-4">
           <p className="font-semibold">

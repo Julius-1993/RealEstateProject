@@ -46,7 +46,7 @@ export default function SignUp() {
     }
   };
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-3 max-w-lg mx-auto py-20">
       <h1 className="text-3xl text-center font-semibold my-7 text-yellow-700">
         SignUp
       </h1>

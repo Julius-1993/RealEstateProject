@@ -26,6 +26,7 @@ export default function UpdateListing() {
     bathrooms: 1,
     regularPrice: 100000,
     discountPrice: 0,
+    percentagePrice: 0,
     offer: false,
     furnished: false,
     parking: false,
@@ -299,6 +300,22 @@ export default function UpdateListing() {
               <div className="flex flex-col items-center">
                 <p>Regular Price</p>
                 <span className="text-xs font-semibold">(&#8358; / month)</span>
+              </div>
+            </div>
+            <div className=" flex items-center gap-2">
+              <input
+                type="number"
+                id="interest"
+                min="0"
+                max="600000000"
+                required
+                onChange={handleChange}
+                value={formData.interest}
+                className="border border-slate-500 p-3 rounded-lg"
+              />
+              <div className="flex flex-col items-center">
+                <p>Interest Fee</p>
+                <span className="text-xs font-semibold">(  %)</span>
               </div>
             </div>
             {formData.offer &&(

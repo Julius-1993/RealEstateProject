@@ -2,7 +2,8 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="py-20 px-4 max-w-6xl mx-auto border border-lime-600 mt-10 bg-amber-100 shadow-xl hover:scale-110">
+    <div className="pt-40 mx-auto justify-center items-center flex py-10 px-8">
+    <div className=" card bg-base-100 w-full shrink-0 shadow-2xl p-4">
       <h1 className="text-3xl font-bold mb-4 text-slate-800 text-center">
         About AJ Estate
       </h1>
@@ -33,6 +34,7 @@ export default function About() {
         should be an exciting and rewarding experience, and we are dedicated to
         making that a reality for each and every one of our clients.
       </p>
+    </div>
     </div>
   );
 }
