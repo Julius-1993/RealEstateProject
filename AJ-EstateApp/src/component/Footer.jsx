@@ -6,17 +6,18 @@ export default function Footer() {
     <div>
       <footer className="footer p-10 bg-base-300 text-base-content">
         <nav>
-          <h6 className="footer-title">Services</h6>
-          <Link to="/" className="link link-hover">Design</Link>
-          <Link to="/" className="link link-hover">Marketing</Link>
-          <Link to="/review" className="link link-hover">Customer Review</Link>
+          <h6 className="footer-title">Our Services</h6>
+          <Link to="/" className="link link-hover">Home</Link>
+          <Link to="/" className="link link-hover">Market Place</Link>
+          <Link to="/sign-up" className="link link-hover">Register with Us today!</Link>
+          <Link to="/faq" className="link link-hover">FAQ</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
           <Link to="/about"> <p className="link link-hover">About us</p></Link>
-          <Link to="/testimonial" className="link link-hover">Testimonials</Link>
-          <Link to="/sign-up" className="link link-hover">Register with Us today!</Link>
-          <Link to="/faq" className="link link-hover">FAQ</Link>
+          <Link to="/testimonial" className="link link-hover"> Customer's Testimonials</Link>
+          <Link to="" className="link link-hover">Contact Us</Link>
+          
         </nav>
         <nav>
           <h6 className="footer-title">Social</h6>
