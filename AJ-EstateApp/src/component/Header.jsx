@@ -46,7 +46,7 @@ export default function Header() {
     }
   };
   return (
-    <div className="max-w-screen-2xl fixed top-0 left-0 z-50 h-16 w-full">
+    <div className="max-w-screen-2xl fixed top-0 z-50 h-15">
       <div className="navbar bg-slate-400 px-8 justify-between p-4">
         <div className="navbar-start">
           <div className="dropdown">
@@ -100,14 +100,14 @@ export default function Header() {
           </div>
           <Link to="/">
             <h1 className="font-bold text-sm sm:text-xl flex flex-wrap ">
-              <span className="text-rose-600">AJ-</span>
-              <span className="text-purple-900">ESTATE</span>
+              <span className="text-rose-600">TOE</span>
+              <span className="text-purple-900">HUNT</span>
             </h1>
           </Link>
         </div>
         <form
           onChange={handleSubmit}
-          className="flex bg-slate-100 p-3 rounded-lg items-center sm:shrink-0  "
+          className="flex bg-slate-100 p-3 rounded-lg items-center sm:shrink-0 "
         >
           <input
             type="search"
@@ -143,10 +143,10 @@ export default function Header() {
                     alt="profile"
                   />
                 ) : (
-                  <div className="navbar-end">
-                    <button href='/sign-in' className="btn flex items-center gap-2 rounded-full px-6 bg-green-700 text-white mr-20">
+                  <div className="">
+                    <Link href='/sign-in' className="btn w- flex items-center gap-2 rounded-lg px-6 bg-green-700 text-white p-2">
                       Login
-                    </button>
+                    </Link>
                   </div>
                   // <button >
                   //   Sign in
