@@ -46,7 +46,7 @@ export default function Header() {
     }
   };
   return (
-    <div className="max-w-screen-2xl fixed top-0 z-50 h-15">
+    <div className="max-w-screen-2xl fixed top-0 z-50 h-15 w-full">
       <div className="navbar bg-slate-400 px-8 justify-between p-4">
         <div className="navbar-start">
           <div className="dropdown">
