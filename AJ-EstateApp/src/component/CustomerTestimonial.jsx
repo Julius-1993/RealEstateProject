@@ -20,7 +20,7 @@ export default function CustomerTestimonial() {
   };
 
   return (
-    <div className="px-4 py-6 w-full">
+    <div className=" w-full py-40 px-8">
       <ReviewList reviews={reviews} />
     </div>
   );
